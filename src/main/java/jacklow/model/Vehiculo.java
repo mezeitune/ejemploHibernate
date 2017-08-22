@@ -26,6 +26,14 @@ public class Vehiculo {
 		return vtu;
 	}
 
+	public void setVtu(String vtu) {
+		this.vtu = vtu;
+	}
+
+	public void setPatente(String patente) {
+		this.patente = patente;
+	}
+
 	public String getPatente() {
 		return patente;
 	}

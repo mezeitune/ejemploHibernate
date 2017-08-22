@@ -28,14 +28,11 @@ public class Runner {
 		entityManager.getTransaction().commit();
 		
 		
-		//para modificar algo tengo que usar el setter de la clase y hacer el begin y commit 
-		//lo del begin y commit es hacer una transaccion atomica
-		
-		//entityManager.clear();//para que se olvide de todos los objetos a persistir por que sino se llena mucho la memoria
-		//normalmente se hace cuando termine de usar una pantalla
-		
-		//Session session = (Session) entityManager.getDelegate();
-        //Vehiculo vehiculo =  (Vehiculo) session.get(Vehiculo.class, new Long(1));
+		//para modificar
+		entityManager.getTransaction().begin();
+		vehiculo.setPatente("Krishna");
+		vehiculo.setVtu("Allahabad");
+		entityManager.getTransaction().commit();
 		
 	
 	}
