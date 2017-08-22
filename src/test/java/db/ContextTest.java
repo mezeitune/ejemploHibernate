@@ -8,7 +8,6 @@ import org.uqbarproject.jpa.java8.extras.test.AbstractPersistenceTest;
 
 public class ContextTest extends AbstractPersistenceTest implements WithGlobalEntityManager {
 
-	/*
 	
 	@Test
 	public void contextUp() {
@@ -20,6 +19,6 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
 		withTransaction(() -> {});
 	}
 	
-	*/
+	
 
 }
