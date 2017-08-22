@@ -1,15 +1,30 @@
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
 public class JPAUtility {
- 	private static final EntityManagerFactory emFactory;
-	static {
+	private static JPAUtility instance ;
+ 	private EntityManagerFactory emFactory;
+ 	
+	public static JPAUtility getInstance( ){
+        if(instance == null){
+            instance = new JPAUtility();
+        }
+        return instance;
+
+	}	
+	
+	
+
+	public JPAUtility() {
 		   emFactory = Persistence.createEntityManagerFactory("db");
 	}
-	public static EntityManager getEntityManager(){
+	
+	public EntityManager getEntityManager(){
 		return emFactory.createEntityManager();
 	}
-	public static void close(){
+	public void close(){
 		emFactory.close();
 	}
+	
 } 
