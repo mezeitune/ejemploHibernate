@@ -8,21 +8,24 @@ import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import jacklow.model.Vehiculo;
 
+//Inspiracion:
+//http://www.concretepage.com/java/jpa/jpa-entitymanager-and-entitymanagerfactory-example-using-hibernate-with-persist-find-contains-detach-merge-and-remove
+
 public class Runner {
 
 	public static void main(String[] args) {
-		RepoVehiculo repo=new RepoVehiculo();
+		EntityManager entityManager = JPAUtility.getEntityManager();
+		RepoVehiculo repo=new RepoVehiculo(entityManager);
 		
-		//EntityManager entityManager = (EntityManager) PerThreadEntityManagers.getEntityManager().getTransaction();
-		EntityManager entityManager = JPAUtility.getEntityManager();	
-		Vehiculo vehiculo=entityManager.find(Vehiculo.class,new Long(1));//el repo o el que implemente la interfaz de ORM deberia ser el encargado de hacer esto
+		Vehiculo vehiculo=repo.findeById(1);
+		System.out.println(vehiculo.toString());
 		
-		//((EntityTransaction) entityManager).begin();
 		
-		//repo.agregar(new Vehiculo("otra","bla"));//hacer la clase repo con un findById y el agregar
-		//PerThreadEntityManagers.getEntityManager().persist(vehiculo)
+		entityManager.getTransaction().begin();
 		
-		//((EntityTransaction) entityManager).commit();
+		repo.agregar(new Vehiculo("otra","bla"));
+		
+		entityManager.getTransaction().commit();
 		
 		
 		//para modificar algo tengo que usar el setter de la clase y hacer el begin y commit 
@@ -34,7 +37,7 @@ public class Runner {
 		//Session session = (Session) entityManager.getDelegate();
         //Vehiculo vehiculo =  (Vehiculo) session.get(Vehiculo.class, new Long(1));
 		
-		System.out.println(vehiculo.toString());
+	
 	}
 
 }
