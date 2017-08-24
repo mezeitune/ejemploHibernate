@@ -13,7 +13,11 @@
     	<class>jacklow.model.Vehiculo</class> <!--  tengo que decirle a hibernate las clases que van a ser mapeadas por el ORM -->
     										<!--  y a esa clase en el archivo Class decirle que es una Entity -->
     	<class>jacklow.model.Robo</class>
-    	 
+    	<class>jacklow.model.Movil</class>
+    	<class>jacklow.model.eventos.Evento</class>
+    	<class>jacklow.model.eventos.PistaEncontrada</class>
+    	<class>jacklow.model.eventos.VehiculoDetectado</class>
+        <class>jacklow.model.eventos.MovilAsignado</class>
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        
         

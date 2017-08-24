@@ -8,6 +8,7 @@ import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import jacklow.model.Robo;
 import jacklow.model.Vehiculo;
+import jacklow.model.eventos.Evento;
 
 //Inspiracion:
 //http://www.concretepage.com/java/jpa/jpa-entitymanager-and-entitymanagerfactory-example-using-hibernate-with-persist-find-contains-detach-merge-and-remove
@@ -31,7 +32,8 @@ public class Runner {
 		
 		entityManager.getTransaction().begin();
 		
-		Vehiculo vehiculo2 = repo.findeById(1);
+		Vehiculo vehiculo2 = new Vehiculo("asda","asdad");//si le doy esto a robo va a tirar error , por q no esta guardado en BD
+		//esto se soluciona o persistiendo aca o con el coso ese cascade en el robo
 		
 		Robo robo = new Robo();
 		robo.setVehiculo(vehiculo2);
@@ -46,6 +48,9 @@ public class Runner {
 		vehiculo.setPatente("Krishna");
 		vehiculo.setVtu("Allahabad");
 		entityManager.getTransaction().commit();
+		
+		Evento evento=entityManager.find(Evento.class, new Long(1));
+		System.out.println(evento != null);
 		
 	
 	}

@@ -1,5 +1,8 @@
 package jacklow.model.eventos;
 
+import javax.persistence.Entity;
+
+@Entity
 public class VehiculoDetectado extends Evento {
 	private int numeroDeAntena;
 	private int intensidad;
