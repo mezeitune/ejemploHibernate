@@ -2,6 +2,7 @@ import javax.persistence.EntityManager;
 
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
+import jacklow.model.Robo;
 import jacklow.model.Vehiculo;
 
 public class RepoVehiculo {
@@ -12,6 +13,11 @@ public class RepoVehiculo {
 	}
 	
 	public void agregar(Vehiculo vehiculo){
+		entityManager.persist(vehiculo);
+	
+	}
+	
+	public void agregarRobo(Robo vehiculo){
 		entityManager.persist(vehiculo);
 	
 	}

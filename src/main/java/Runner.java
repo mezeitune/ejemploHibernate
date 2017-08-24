@@ -6,6 +6,7 @@ import javax.persistence.Persistence;
 import org.hibernate.Session;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
+import jacklow.model.Robo;
 import jacklow.model.Vehiculo;
 
 //Inspiracion:
@@ -24,6 +25,18 @@ public class Runner {
 		entityManager.getTransaction().begin();
 		
 		repo.agregar(new Vehiculo("otra","bla"));
+		
+		entityManager.getTransaction().commit();
+		
+		
+		entityManager.getTransaction().begin();
+		
+		Vehiculo vehiculo2 = repo.findeById(1);
+		
+		Robo robo = new Robo();
+		robo.setVehiculo(vehiculo2);
+		
+		repo.agregarRobo(robo);
 		
 		entityManager.getTransaction().commit();
 		
