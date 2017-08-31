@@ -6,8 +6,17 @@ import org.junit.Test;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import org.uqbarproject.jpa.java8.extras.test.AbstractPersistenceTest;
 
-public class ContextTest extends AbstractPersistenceTest implements WithGlobalEntityManager {
-
+public class ContextTest extends AbstractPersistenceTest implements WithGlobalEntityManager {//siempre para los tests heredar ese abstract persistence tes
+/*
+	@Before
+	public void init(){
+		entitiManager+instancia
+		javax.persistence.EntityTransaction tx= entityManager.getTransaction()
+		if(!tx.isActive()) tx.begin();
+		
+		//instanciar reposotiro ,  y empezar a hacer lo que quieras
+	}
+	*/
 	
 	@Test
 	public void contextUp() {
@@ -20,5 +29,12 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
 	}
 	
 	
-
+/*
+	@After
+	public void clean(){
+		//entituManager.clear();//no rollbackea la transacion
+		entityManager.getTrasaction().rollback() // no hay que hacer el commit , solo el begin
+	}
+	*/
+	
 }
