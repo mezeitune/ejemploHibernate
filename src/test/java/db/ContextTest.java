@@ -30,6 +30,9 @@ public class ContextTest extends AbstractPersistenceTest implements WithGlobalEn
 	
 	
 /*
+ * Tests estilo inserto algo y traigo para ver si me trajo la cantidad correcta
+ * 
+ * 
 	@After
 	public void clean(){
 		//entituManager.clear();//no rollbackea la transacion
